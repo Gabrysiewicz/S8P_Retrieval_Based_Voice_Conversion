@@ -7,5 +7,7 @@ dependencies:
   - pandas
 # Problems happend with version specified
   - opencv
+  - jupyterlab
+  - notebook
 #  - argparse
 
