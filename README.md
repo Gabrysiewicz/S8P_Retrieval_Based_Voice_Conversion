@@ -16,3 +16,9 @@ or
 ```
 conda activate image-recognition-project
 ```
+
+# S8P_Voice_Modulation
+
+https://keithito.com/LJ-Speech-Dataset/
+
+https://pytorch.org/hub/nvidia_deeplearningexamples_tacotron2/
