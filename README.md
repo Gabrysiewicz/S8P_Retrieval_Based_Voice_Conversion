@@ -1,31 +1,23 @@
-# S8P_Image_Recognition
+# Retrieval-Based Voice Conversion
 
-Create conda env
-```
-conda env create -f envs/image-recognition-project.yml
-```
-Remove if needed
-```
-conda env remove --name image-recognition-project
-```
-Activate env
-```
-source activate image-recognition-project
-```
-or
-```
-conda activate image-recognition-project
-```
+RVC (Retrieval-based Voice Conversion) to nowoczesny model konwersji głosu, który przekształca mowę jednego mówcy na mowę innego, zachowując specyficzne cechy głosowe docelowego mówcy. Dzięki zaawansowanym technikom uczenia maszynowego i głębokiego uczenia, RVC wyróżnia się skutecznością i precyzją. Model ten wykorzystuje dużą bazę danych próbek mowy, analizując cechy akustyczne mowy źródłowej i porównując je z próbkami mowy docelowego mówcy, co pozwala na naturalne i realistyczne odwzorowanie głosu.
 
-# S8P_Voice_Modulation
+RVC znajduje zastosowanie w wielu dziedzinach, takich jak produkcja filmowa, gry komputerowe, technologie asystentów głosowych i systemy telekomunikacyjne. Umożliwia tworzenie postaci mówiących głosem znanych aktorów oraz personalizację głosu asystentów. Jednak technologia ta wymaga odpowiednich regulacji prawnych w celu ochrony prywatności i praw autorskich. Pomimo tych wyzwań, potencjał RVC jest ogromny, a jego dalszy rozwój może przynieść jeszcze bardziej zaawansowane i zróżnicowane zastosowania.
 
-https://keithito.com/LJ-Speech-Dataset
+# RVC2
+RVC2, czyli druga generacja Retrieval-based Voice Conversion, to zaawansowany model konwersji głosu, który buduje na sukcesie swojego poprzednika. Dzięki lepszym algorytmom, RVC2 oferuje wyższą jakość konwersji, precyzyjniej odwzorowując intonację, tembr i dynamikę głosu docelowego mówcy. Udoskonalone metody pozyskiwania i przetwarzania danych umożliwiają szybszą i dokładniejszą konwersję, co jest praktyczne w zastosowaniach na żywo. Model ten jest również bardziej elastyczny, obsługując różne style mówienia i języki, co czyni go wszechstronnym narzędziem w różnych kontekstach. Jednakże, kwestia prywatności i etyki pozostaje kluczowa dla jego odpowiedniego wykorzystania.
 
-https://pytorch.org/hub/nvidia_deeplearningexamples_tacotron2
+# RMVPE 
+RMVPE (Retrieval-based Multi-view Prediction and Embedding) to zaawansowany model predykcji i osadzania danych, który wykorzystuje techniki głębokiego uczenia do analizy wieloaspektowych danych. Jego główną funkcją jest przewidywanie przyszłych wartości na podstawie złożonych wzorców w zbiorach danych, dzięki czemu może znaleźć zastosowanie w takich dziedzinach jak prognozowanie sprzedaży, analiza zachowań konsumentów czy systemy rekomendacyjne. Model RMVPE analizuje dane z różnych perspektyw (multi-view), co pozwala na bardziej precyzyjne i kompleksowe zrozumienie relacji między danymi. Wykorzystując duże bazy danych i zaawansowane algorytmy, RMVPE oferuje skuteczność i dokładność, co czyni go wartościowym narzędziem w kontekście analizy danych i sztucznej inteligencji.
 
-| Tool | Usecase |
-| --- | --- |
-| `Tacotron2` | Learn the model, based on person's voice. The model creates text read by specific person's voice |
-| `AutoVC` / `StarGAN-VC` | Transforms the voice of read lyrics into singing style |
-| `WaveNet` | Transforms singing voice into music |
-| `Librosa` | Extraction of waveform |
+# Crepe
+CREPE (Convolutional Representation for Pitch Estimation) to nowoczesny model estymacji wysokości dźwięku, który wykorzystuje konwolucyjne sieci neuronowe do precyzyjnej analizy sygnałów audio. Jego głównym zadaniem jest dokładne określenie wysokości tonów w czasie rzeczywistym, co jest kluczowe w takich dziedzinach jak muzyka, mowa, oraz badania akustyczne. CREPE wyróżnia się wysoką dokładnością i efektywnością dzięki wykorzystaniu zaawansowanych technik głębokiego uczenia, które pozwalają na skuteczne przetwarzanie i interpretację złożonych sygnałów dźwiękowych. Dzięki swojej precyzji i szybkości, model ten znajduje szerokie zastosowanie w aplikacjach wymagających dokładnej analizy wysokości dźwięków.
+
+# Harvest
+Harvest to zaawansowany algorytm estymacji wysokości dźwięku, zaprojektowany do precyzyjnej analizy sygnałów audio. Jego głównym celem jest dokładne określenie wysokości tonów w nagraniach, co jest kluczowe w dziedzinach takich jak muzyka, mowa i badania akustyczne. Harvest wykorzystuje zaawansowane techniki przetwarzania sygnałów i analizę czasowo-częstotliwościową, aby zapewnić wysoką dokładność i niezawodność estymacji wysokości dźwięku. Dzięki swojej precyzji i efektywności, algorytm ten znajduje szerokie zastosowanie w różnych aplikacjach, w tym w programach do edycji muzyki, systemach rozpoznawania mowy oraz w badaniach naukowych nad akustyką i fonetyką.
+
+# PM
+PM (Parselmouth) to narzędzie do analizy i przetwarzania mowy, które wykorzystuje bibliotekę Praat, popularną wśród badaczy fonetyki i lingwistyki. PM umożliwia dokładne pomiary akustyczne, takie jak wysokość dźwięku, formanty, intensywność i spektralny przepływ energii, co jest kluczowe dla analiz mowy i dźwięku. Dzięki swojej integracji z Praat, PM pozwala na automatyzację wielu procesów analitycznych, co znacznie usprawnia pracę nad dużymi zbiorami danych. Narzędzie to jest cenione za swoją dokładność, elastyczność i możliwość dostosowania do specyficznych potrzeb badawczych, znajdując zastosowanie w takich dziedzinach jak lingwistyka, fonetyka, psychologia mowy oraz technologia mowy.
+
+# Dio
+Algorytm DIO (Distributed Input Distributed Output) jest specjalizowanym narzędziem do precyzyjnej estymacji tonów lub częstotliwości dźwięków w sygnałach audio. Opracowany w kontekście sieci neuronowych, DIO wykorzystuje techniki rozproszonego wejścia i wyjścia, co pozwala na równoczesne przetwarzanie wielu fragmentów danych, co zwiększa jego efektywność. Algorytm ten jest kluczowy w aplikacjach wymagających dokładnej analizy czasowo-częstotliwościowej, takich jak przetwarzanie mowy, analiza muzyki oraz systemy rozpoznawania mowy, zapewniając wysoką precyzję estymacji tonów i ich zmian w czasie.
