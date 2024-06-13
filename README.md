@@ -5,6 +5,9 @@ RVC (Retrieval-based Voice Conversion) to nowoczesny model konwersji głosu, kt�
 RVC znajduje zastosowanie w wielu dziedzinach, takich jak produkcja filmowa, gry komputerowe, technologie asystentów głosowych i systemy telekomunikacyjne. Umożliwia tworzenie postaci mówiących głosem znanych aktorów oraz personalizację głosu asystentów. Jednak technologia ta wymaga odpowiednich regulacji prawnych w celu ochrony prywatności i praw autorskich. Pomimo tych wyzwań, potencjał RVC jest ogromny, a jego dalszy rozwój może przynieść jeszcze bardziej zaawansowane i zróżnicowane zastosowania.
 
 # RVC WEBUI
+
+Author of RVC-WebUI: `https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI`
+
 <img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/RVCWEBui.png" />
 Retrieval-based Voice Conversion WebUI to interfejs użytkownika oparty na technologii przetwarzania mowy, który umożliwia konwersję głosu na podstawie modeli wyszukiwania (retrieval-based). Główne założenie tego podejścia polega na tym, że zamiast tworzyć modele konwersji dla każdej osoby indywidualnie, korzysta się z istniejących nagrań lub danych, aby przekształcać głos jednej osoby na głos innej. Interfejs webowy umożliwia użytkownikom przesyłanie nagrań, które są następnie analizowane i konwertowane, z wykorzystaniem odpowiednich algorytmów i modeli dostępnych na serwerze. Jest to przykład aplikacji, która wykorzystuje zaawansowane technologie przetwarzania sygnałów audio do tworzenia nowych funkcjonalności w obszarze interakcji głosowych i cyfrowych asystentów.
 
