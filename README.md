@@ -249,7 +249,7 @@ Cały proces wymaga relatywnie:
 - Dużej mocy obliczeniowej lub długiego czasu obliczeń, w zależności od wybranego algorytmu i rozmiaru danych.
 - Cierpliwości i umiejętności do dobrania odpowiednich parametrów modelu i procesu interferencji.
 
-Mając na uwadze obecne możliwości sprzętowe i ostateczny efekt, stworzenie Cover AI jest fascynującą możliwością, która może być łatwo rozwijana o dodatkowe funkcjonalności za pomocą modelu .pth.
+Mając na uwadze obecne możliwości sprzętowe i ostateczny efekt, stworzenie Cover AI jest fascynującą możliwością, która może być łatwo rozwijana o dodatkowe funkcjonalności takie jak wykrywanie potencjalnych głosów nadających się do śpiewu, Real Time Translating z wykorzystanie własnego głosu, próby wykrywania deep-fake lub spoofingu. Projekt pozostawia możliwości warte rozważenia na poziomie pracy magisterskiej.
 
 
 
