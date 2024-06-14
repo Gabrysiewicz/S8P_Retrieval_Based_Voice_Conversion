@@ -42,7 +42,7 @@ RVC znajduje zastosowanie w wielu dziedzinach, takich jak produkcja filmowa, gry
 
 Autor RVC-WebUI: `https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI`
 
-<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/RVCWEBui.png" />
+<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/RVC-WebUI.png" />
 Retrieval-based Voice Conversion WebUI to interfejs użytkownika oparty na technologii przetwarzania mowy, który umożliwia konwersję głosu na podstawie modeli wyszukiwania (retrieval-based). Główne założenie tego podejścia polega na tym, że zamiast tworzyć modele konwersji dla każdej osoby indywidualnie, korzysta się z istniejących nagrań lub danych, aby przekształcać głos jednej osoby na głos innej. Interfejs webowy umożliwia użytkownikom przesyłanie nagrań, które są następnie analizowane i konwertowane z wykorzystaniem odpowiednich algorytmów i modeli dostępnych na serwerze. Jest to przykład aplikacji, która wykorzystuje zaawansowane technologie przetwarzania sygnałów audio do tworzenia nowych funkcjonalności w obszarze interakcji głosowych i cyfrowych asystentów.
 
 RVC-WebUI domyślnie oferuje kilka modeli:
@@ -241,7 +241,7 @@ Otrzymany plik należy dokładnie przesłuchać. Jeśli rezultat jest satysfakcj
 5. Przeprowadzamy proces interferencji między wytrenowanym modelem a utworem acapella.
 6. Wynikowy plik audio możemy dalej edytować, dodając muzykę lub dokonując innych modyfikacji w programie do obróbki audio.
 
-<img src="" />
+<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/summary.png" />
 
 Cały proces wymaga relatywnie: 
 - Niewielkiego zbioru danych startowych.
