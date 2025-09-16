@@ -1,88 +1,81 @@
 <h1 align="center"> Retrieval-Based Voice Conversion </h1>
 
-# Cel
-Celem projektu było wytrenowanie modelu na bazie głosu oraz wykorzystywanie go do interferencji z innym istniejącym głosem, w tym przypadku głosem artysty śpiewającego jakiś utwór muzyczny. Ma to na celu utworzenie zjawiska nazywanego Cover AI, czyli podłożenie głosu jednej osoby pod głos oryginalnego artysty.
+# Goal
+The aim of the project was to train a model based on a voice and use it for interference with another existing voice, in this case the voice of an artist singing a musical piece. The purpose of this is to create a phenomenon known as Cover AI, which means overlaying one person’s voice onto the original artist’s voice.  
 
-Jednym z elementów było przygotowanie zbioru danych oraz wytrenowanie modelu sztucznej inteligencji. Ten projekt skupiał się na modelach wykorzystywanych do współpracy z głosem oraz falami dźwiękowymi. Do wyszkolenia modelu potrzebne są odpowiednie pliki dźwiękowe, które muszą spełniać pewne kryteria:
-- głos danej osoby,
-- pliki muszą być pozbawione artefaktów,
-- fragmenty zawierające ciszę muszą być krótkie lub usunięte,
-- może występować tylko jeden głos,
-- zalecanym formatem jest WAV,
-- nazwy plików nie mogą zawierać polskich liter,
-- można korzystać z jednego dużego oraz wielu małych plików,
-- poza głosem nie powinny być słyszalne inne dźwięki.
+One of the elements was preparing the dataset and training an artificial intelligence model. This project focused on models used to work with voice and sound waves. To train the model, appropriate audio files are required, which must meet certain criteria:  
+- the person’s voice,  
+- files must be free from artifacts,  
+- fragments containing silence must be short or removed,  
+- only one voice may be present,  
+- the recommended format is WAV,  
+- file names cannot contain Polish characters,  
+- one large file and many small files can be used,  
+- apart from the voice, no other sounds should be audible.  
 
-Do wyszkolenia modelu wykorzystany zostanie RVC-WebUI dostępny na platformie GitHub: https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI. Głównym algorytmem uczącym model będzie rmvpe_gpu, natomiast algorytmem wykorzystywanym do interferencji będzie również rmvpe. Do przygotowania zbioru danych poprosiłem swojego kolegę o nagranie kilku plików dźwiękowych oraz skorzystałem z kilku nieoficjalnie dostępnych źródeł z materiałami audio.
+To train the model, RVC-WebUI available on GitHub will be used: https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI. The main algorithm for training the model will be **rmvpe_gpu**, while the algorithm used for inference will also be **rmvpe**. To prepare the dataset, I asked a colleague to record several audio files and also used some unofficially available sources with audio materials.  
 
-# Zakres
-Zakres projektu obejmuje:
-- nagranie lub pozyskanie plików dźwiękowych,
-- oczyszczenie plików dźwiękowych z artefaktów (błędy oraz outliery),
-- usunięcie ciszy we fragmentach plików lub redukcja czasu trwania ciszy,
-- usunięcie fragmentów zawierających niepożądane dźwięki otoczenia (szumy, stuknięcia, ćwierkające ptaki, inne głosy),
-- wyszkolenie modelu,
-- dobranie odpowiednich parametrów uczących,
-- pozyskanie materiałów do interferencji (czysty głos artysty),
-- dobranie parametrów do interferencji,
-- interferencja,
-- ocena oraz fine-tuning modelu i interferencji.
 
-# Kontekst
-W pierwotnym założeniu projekt zaliczeniowy miał dotyczyć rozpoznawania obrazów z wykorzystaniem modelu YOLO. Jednakże, ze względu na moje zainteresowania oraz w uzgodnieniu z prowadzącym, tematyka mojego projektu została zmieniona na wykorzystanie sztucznej inteligencji w Coverach AI. Jest to temat, który mnie interesuje oraz w którym widzę ogromny potencjał.
+# Context
+In the original plan, the final project was supposed to focus on image recognition using the YOLO model. However, due to my personal interests and after consulting with my supervisor, the topic of my project was changed to the use of artificial intelligence in AI Covers. This is a subject that interests me and in which I see great potential.  
 
-# Wstęp
-Istnieje wiele modeli wykorzystywanych w uczeniu na bazie plików audio, różniących się pod kątem zastosowania. Jednym z popularnych modeli jest Tacotron 2 wydany przez Google. Do procesu uczenia zbiera się mnóstwo krótkich plików audio, do których następnie przygotowuje się jeden zbiorczy plik metadata.csv, zawierający nazwę pliku oraz tekst, który jest wypowiadany w danym fragmencie. Tacotron 2 umożliwia tworzenie modeli opartych o text-to-speech, które po wpisaniu danego tekstu, czytają go głosem, na którym prowadzono uczenie. Problemem tej metody jest brak odwzorowania emocji oraz artykulacji w mowie, dlatego skorzystałem z modelu RVC (Retrieval-based Voice Conversion).
+# Introduction
+There are many models used for training based on audio files, differing in their applications. One of the popular models is **Tacotron 2**, released by Google. In the training process, a large number of short audio files are collected, and then a single consolidated `metadata.csv` file is prepared, containing the file name and the text spoken in the given fragment. Tacotron 2 enables the creation of text-to-speech models, which, after entering text, read it using the trained voice. The drawback of this method is the lack of emotional reproduction and articulation in speech, which is why I used the **RVC (Retrieval-based Voice Conversion)** model instead.  
 
-RVC (Retrieval-based Voice Conversion) to nowoczesny model konwersji głosu, który przekształca mowę jednego mówcy na mowę innego, zachowując specyficzne cechy głosowe docelowego mówcy. Dzięki zaawansowanym technikom uczenia maszynowego i głębokiego uczenia, RVC wyróżnia się skutecznością i precyzją. Model ten wykorzystuje dużą bazę danych próbek mowy, analizując cechy akustyczne mowy źródłowej i porównując je z próbkami mowy docelowego mówcy, co pozwala na naturalne i realistyczne odwzorowanie głosu.
+**RVC (Retrieval-based Voice Conversion)** is a modern voice conversion model that transforms the speech of one speaker into the speech of another while preserving the unique vocal characteristics of the target speaker. Thanks to advanced machine learning and deep learning techniques, RVC stands out for its effectiveness and precision. The model uses a large database of speech samples, analyzing the acoustic features of the source speech and comparing them with the target speaker’s samples, allowing for natural and realistic voice reproduction.  
 
-RVC znajduje zastosowanie w wielu dziedzinach, takich jak produkcja filmowa, gry komputerowe, technologie asystentów głosowych i systemy telekomunikacyjne. Umożliwia tworzenie postaci mówiących głosem znanych aktorów oraz personalizację głosu asystentów. Jednak technologia ta wymaga odpowiednich regulacji prawnych w celu ochrony prywatności i praw autorskich. Pomimo tych wyzwań, potencjał RVC jest ogromny, a jego dalszy rozwój może przynieść jeszcze bardziej zaawansowane i zróżnicowane zastosowania.
+RVC finds applications in many fields, such as film production, video games, voice assistant technologies, and telecommunication systems. It enables the creation of characters speaking in the voices of well-known actors and the personalization of assistant voices. However, this technology requires appropriate legal regulations to protect privacy and copyright. Despite these challenges, the potential of RVC is enormous, and its further development may bring even more advanced and diverse applications.  
+
 
 # RVC WEBUI
 
 Autor RVC-WebUI: `https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI`
 
-<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/RVC-WebUI.png" />
-Retrieval-based Voice Conversion WebUI to interfejs użytkownika oparty na technologii przetwarzania mowy, który umożliwia konwersję głosu na podstawie modeli wyszukiwania (retrieval-based). Główne założenie tego podejścia polega na tym, że zamiast tworzyć modele konwersji dla każdej osoby indywidualnie, korzysta się z istniejących nagrań lub danych, aby przekształcać głos jednej osoby na głos innej. Interfejs webowy umożliwia użytkownikom przesyłanie nagrań, które są następnie analizowane i konwertowane z wykorzystaniem odpowiednich algorytmów i modeli dostępnych na serwerze. Jest to przykład aplikacji, która wykorzystuje zaawansowane technologie przetwarzania sygnałów audio do tworzenia nowych funkcjonalności w obszarze interakcji głosowych i cyfrowych asystentów.
+<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/RVC-WebUI.png" />  
+Retrieval-based Voice Conversion WebUI is a user interface based on speech processing technology that enables voice conversion using retrieval-based models. The main idea of this approach is that instead of creating separate conversion models for each individual, existing recordings or data are used to transform one person’s voice into another’s.  
 
-RVC-WebUI domyślnie oferuje kilka modeli:
-- rmvpe,
-- crepe,
-- harvest,
-- dio.
-Ponieważ model rmvpe jest najbardziej efektywny oraz wydajny, został on wykorzystany do uczenia oraz interferencji. W dalszej części wszystkie te modele zostaną pokrótce opisane, natomiast rmvpe był głównym modelem wykorzystywanym w tym projekcie.
+The web interface allows users to upload recordings, which are then analyzed and converted using the appropriate algorithms and models available on the server. This is an example of an application that leverages advanced audio signal processing technologies to create new functionalities in the field of voice interaction and digital assistants.  
 
-Repozytorium RVC-WebUI zawiera dokładne instrukcje instalacji. Wszystko powinno działać, natomiast może okazać się potrzebne doinstalowanie kilku pakietów do poprawnej obsługi karty graficznej. Jednym z takich elementów jest Nvidia CUDA Toolkit oraz biblioteki wspierające konkretną wersję toolkita. Dokładne instrukcje można znaleźć w sekcji Issues w repozytorium.
+RVC-WebUI by default offers several models:  
+- rmvpe,  
+- crepe,  
+- harvest,  
+- dio.  
 
-# RVC2
-RVC2, czyli druga generacja Retrieval-based Voice Conversion, to zaawansowany model konwersji głosu, który buduje na sukcesie swojego poprzednika. Dzięki lepszym algorytmom, RVC2 oferuje wyższą jakość konwersji, precyzyjniej odwzorowując intonację, tembr i dynamikę głosu docelowego mówcy. Udoskonalone metody pozyskiwania i przetwarzania danych umożliwiają szybszą i dokładniejszą konwersję, co jest praktyczne w zastosowaniach na żywo. Model ten jest również bardziej elastyczny, obsługując różne style mówienia i języki, co czyni go wszechstronnym narzędziem w różnych kontekstach. Jednakże, kwestia prywatności i etyki pozostaje kluczowa dla jego odpowiedniego wykorzystania.
+Since the **rmvpe** model is the most efficient and effective, it was used for both training and inference. In the following section, all of these models will be briefly described, but **rmvpe** was the main model applied in this project.  
 
-# RMVPE 
-RMVPE (Retrieval-based Multi-view Prediction and Embedding) to zaawansowany model predykcji i osadzania danych, który wykorzystuje techniki głębokiego uczenia do analizy wieloaspektowych danych. Jego główną funkcją jest przewidywanie przyszłych wartości na podstawie złożonych wzorców w zbiorach danych, dzięki czemu może znaleźć zastosowanie w takich dziedzinach jak prognozowanie sprzedaży, analiza zachowań konsumentów czy systemy rekomendacyjne. Model RMVPE analizuje dane z różnych perspektyw (multi-view), co pozwala na bardziej precyzyjne i kompleksowe zrozumienie relacji między danymi. Wykorzystując duże bazy danych i zaawansowane algorytmy, RMVPE oferuje skuteczność i dokładność, co czyni go wartościowym narzędziem w kontekście analizy danych i sztucznej inteligencji.
+The RVC-WebUI repository provides detailed installation instructions. Everything should work out of the box, however, it may be necessary to install additional packages to ensure proper support for the graphics card. One such element is the **Nvidia CUDA Toolkit** along with libraries that support a specific version of the toolkit. Detailed instructions can be found in the *Issues* section of the repository.  
 
-# Crepe
-CREPE (Convolutional Representation for Pitch Estimation) to nowoczesny model estymacji wysokości dźwięku, który wykorzystuje konwolucyjne sieci neuronowe do precyzyjnej analizy sygnałów audio. Jego głównym zadaniem jest dokładne określenie wysokości tonów w czasie rzeczywistym, co jest kluczowe w takich dziedzinach jak muzyka, mowa, oraz badania akustyczne. CREPE wyróżnia się wysoką dokładnością i efektywnością dzięki wykorzystaniu zaawansowanych technik głębokiego uczenia, które pozwalają na skuteczne przetwarzanie i interpretację złożonych sygnałów dźwiękowych. Dzięki swojej precyzji i szybkości, model ten znajduje szerokie zastosowanie w aplikacjach wymagających dokładnej analizy wysokości dźwięków.
 
-# Harvest
-Harvest to zaawansowany algorytm estymacji wysokości dźwięku, zaprojektowany do precyzyjnej analizy sygnałów audio. Jego głównym celem jest dokładne określenie wysokości tonów w nagraniach, co jest kluczowe w dziedzinach takich jak muzyka, mowa i badania akustyczne. Harvest wykorzystuje zaawansowane techniki przetwarzania sygnałów i analizę czasowo-częstotliwościową, aby zapewnić wysoką dokładność i niezawodność estymacji wysokości dźwięku. Dzięki swojej precyzji i efektywności, algorytm ten znajduje szerokie zastosowanie w różnych aplikacjach, w tym w programach do edycji muzyki, systemach rozpoznawania mowy oraz w badaniach naukowych nad akustyką i fonetyką.
+# RVC2  
+RVC2, the second generation of Retrieval-based Voice Conversion, is an advanced voice conversion model that builds on the success of its predecessor. With improved algorithms, RVC2 offers higher-quality conversion, more accurately reproducing the intonation, timbre, and dynamics of the target speaker’s voice. Enhanced methods of data acquisition and processing allow for faster and more precise conversion, which is practical for live applications. The model is also more flexible, supporting various speaking styles and languages, making it a versatile tool in different contexts. However, privacy and ethical concerns remain crucial for its appropriate use.  
 
-# PM
-PM (Parselmouth) to narzędzie do analizy i przetwarzania mowy, które wykorzystuje bibliotekę Praat, popularną wśród badaczy fonetyki i lingwistyki. PM umożliwia dokładne pomiary akustyczne, takie jak wysokość dźwięku, formanty, intensywność i spektralny przepływ energii, co jest kluczowe dla analiz mowy i dźwięku. Dzięki swojej integracji z Praat, PM pozwala na automatyzację wielu procesów analitycznych, co znacznie usprawnia pracę nad dużymi zbiorami danych. Narzędzie to jest cenione za swoją dokładność, elastyczność i możliwość dostosowania do specyficznych potrzeb badawczych, znajdując zastosowanie w takich dziedzinach jak lingwistyka, fonetyka, psychologia mowy oraz technologia mowy.
+# RMVPE  
+RMVPE (Retrieval-based Multi-view Prediction and Embedding) is an advanced prediction and embedding model that leverages deep learning techniques to analyze multi-faceted data. Its main function is to forecast future values based on complex patterns in datasets, which makes it useful in areas such as sales forecasting, consumer behavior analysis, and recommendation systems. RMVPE analyzes data from multiple perspectives (multi-view), enabling a more precise and comprehensive understanding of relationships between data points. By utilizing large datasets and advanced algorithms, RMVPE delivers both effectiveness and accuracy, making it a valuable tool in the context of data analysis and artificial intelligence.  
 
-# Dio
-Algorytm DIO (Distributed Input Distributed Output) jest specjalizowanym narzędziem do precyzyjnej estymacji tonów lub częstotliwości dźwięków w sygnałach audio. Opracowany w kontekście sieci neuronowych, DIO wykorzystuje techniki rozproszonego wejścia i wyjścia, co pozwala na równoczesne przetwarzanie wielu fragmentów danych, co zwiększa jego efektywność. Algorytm ten jest kluczowy w aplikacjach wymagających dokładnej analizy czasowo-częstotliwościowej, takich jak przetwarzanie mowy, analiza muzyki oraz systemy rozpoznawania mowy, zapewniając wysoką precyzję estymacji tonów i ich zmian w czasie.
+# Crepe  
+CREPE (Convolutional Representation for Pitch Estimation) is a modern pitch estimation model that uses convolutional neural networks to precisely analyze audio signals. Its main task is to accurately determine pitch in real time, which is crucial in fields such as music, speech, and acoustic research. CREPE stands out for its high accuracy and efficiency thanks to advanced deep learning techniques that allow effective processing and interpretation of complex audio signals. Due to its precision and speed, this model is widely applied in applications requiring accurate pitch analysis.  
 
-# Oczyszczanie danych
-Przykład danych wejściowych:
-<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/audacity_przed.png" />
+# Harvest  
+Harvest is an advanced pitch estimation algorithm designed for precise analysis of audio signals. Its primary goal is to accurately determine pitch in recordings, which is essential in areas such as music, speech, and acoustic research. Harvest leverages advanced signal processing techniques and time-frequency analysis to ensure high accuracy and reliability of pitch estimation. Thanks to its precision and efficiency, this algorithm is widely used in various applications, including music editing software, speech recognition systems, and scientific research in acoustics and phonetics.  
 
-Wynik oczyszczonych danych:
-<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/audacity_po.png" />
+# PM  
+PM (Parselmouth) is a tool for speech analysis and processing that leverages the Praat library, which is widely used among phonetics and linguistics researchers. PM enables precise acoustic measurements such as pitch, formants, intensity, and spectral energy flow, which are crucial for speech and sound analysis. Thanks to its integration with Praat, PM allows the automation of many analytical processes, significantly streamlining work with large datasets. This tool is valued for its accuracy, flexibility, and adaptability to specific research needs, finding applications in fields such as linguistics, phonetics, speech psychology, and speech technology.  
 
-W efekcie uzyskano bardziej jakościowy plik, który da lepsze efekty uczenia oraz krótszy czas trwania. Jest to żmudny proces, ponieważ wymaga odsłuchania całego pliku i często kończy się potrzebą usunięcia sporej części materiału ze względu na zakłócenia. Do oczyszczania wykorzystano program Audacity oraz ffmpeg do zmiany formatu pliku na obsługiwany przez Audacity.
+# Dio  
+The DIO (Distributed Input Distributed Output) algorithm is a specialized tool for accurate estimation of tones or sound frequencies in audio signals. Developed in the context of neural networks, DIO employs distributed input and output techniques, enabling simultaneous processing of multiple data segments, which increases its efficiency. This algorithm is crucial in applications requiring precise time-frequency analysis, such as speech processing, music analysis, and speech recognition systems, providing high accuracy in pitch estimation and tracking tonal variations over time.  
 
-# Proces uczenia
-Wsześniej uzyskany zbiór danych umieszczamy w dogodnym katalogu i możemy przejść do procesu uczenia. Po instalacji RVC-WebUI wywołujemy komendę python infer-web.py w katalogu z repozytorium, co uruchomi lokalny serwer z WebUI.
+# Data Cleaning  
+Example of input data:  
+<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/audacity_przed.png" />  
+
+Result of cleaned data:  
+<img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/audacity_po.png" />  
+
+As a result, a higher-quality file was obtained, which provides better training outcomes and shorter duration. This is a tedious process, as it requires listening to the entire file and often ends up with the need to remove a significant portion of the material due to noise. The Audacity program was used for cleaning, along with ffmpeg to convert the file into a format supported by Audacity.  
+
+# Training Process  
+The previously obtained dataset is placed in a convenient directory, and we can proceed to the training process. After installing RVC-WebUI, we run the command `python infer-web.py` in the repository directory, which will start a local server with the WebUI.  
 ```
 (voice-ai-38) PS X:\AI\Retrieval-based-Voice-Conversion-WebUI> python .\infer-web.py
 2024-06-13 02:05:27 | INFO | configs.config | Found GPU NVIDIA GeForce RTX 3050 Laptop GPU
@@ -93,20 +86,20 @@ Running on local URL:  http://0.0.0.0:7865
 
 <img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/train.png" />
 
-Jeżeli wszystko jest poprawnie zainstalowane, powinna być widoczna nazwa karty graficznej. W WebUI możemy:
-1. Przejść do sekcji Train,
-2. Nadać nazwę modelu,
-3. Określić jakość próbkowania dźwięku,
-4. Ustawić pitch extraction na true (jest to wymagane w śpiewaniu, ale zbędne w zwykłej mowie),
-5. Ustawić wersję RVC na 2,
-6. Ustawić ilość wątków procesora według własnych potrzeb (gdy korzystamy z GPU, ta opcja nie ma znaczenia),
-7. Ustawić ścieżkę do katalogu ze zbiorem danych,
-8. W sekcji Step2b model uczenia ustawiamy na rmvpe_gpu lub rmvpe,
-8b. Liczbę epok możemy pozostawić na 20 (zaleca się wartość między 20 a 30, dalsze zwiększanie nie przekłada się na jakość modelu),
-8c. Batch size również można zwiększać, natomiast nie ma takiej potrzeby,
-9. Przejść do procesu uczenia, wciskając przycisk One-trick training.
+If everything is installed correctly, the GPU name should be visible. In the WebUI, we can:  
+1. Go to the **Train** section,  
+2. Set the model name,  
+3. Specify the audio sampling quality,  
+4. Set **pitch extraction** to true (required for singing, but unnecessary for normal speech),  
+5. Set the RVC version to 2,  
+6. Set the number of CPU threads according to your needs (this option does not matter when using a GPU),  
+7. Set the path to the dataset directory,  
+8. In the **Step2b** section, set the training model to **rmvpe_gpu** or **rmvpe**,  
+8b. You can leave the number of epochs at 20 (recommended value is 20–30; increasing further does not improve model quality),  
+8c. The batch size can also be increased, but it is not necessary,  
+9. Start the training process by pressing the **One-trick training** button.  
 
-RVC najpierw wczyta wszystkie pliki, które mają odpowiedni format.
+RVC will first load all files that have the appropriate format.  
 ```
 X:\AI\Kamyk\dataset-2/steam_07_q.wav    -> Success
 X:\AI\Kamyk\dataset-2/steam_01_q.wav    -> Success
@@ -121,7 +114,7 @@ X:\AI\Kamyk\dataset-2/steam_08.wav      -> Success
 X:\AI\Kamyk\dataset-2/steam_11.wav      -> Success
 ```
 
-RVC następnie podzieli nasz zbiór danych na mniejsze zbiory.
+RVC will then split our dataset into smaller subsets.  
 ```
 now-269,all-0,0_0.wav,(149, 768)
 now-269,all-26,11_1.wav,(67, 768)
@@ -136,10 +129,10 @@ now-269,all-234,9_36.wav,(149, 768)
 now-269,all-260,9_60.wav,(149, 768)
 ```
 
-Finalnie przejdzie do procesu uczenia modelu, który będzie składał się z 20 epok.
-Każda epoka, przy jednakowym obciążeniu sprzętu, powinna trwać mniej więcej tyle samo czasu.
-Więc jeżeli pierwsza epoka zajmie 10 minut, to możemy oszacować 10 minut * 20 epok = 200 minut / 60 = 3 godziny 20 minut.
-Dodatkowo, jeżeli dataset zawiera 12 minut materiału, to prawdopodobnie czas uczenia jednej epoki również zajmie 12 minut. Przynajmniej w moim przypadku i przy mojej karcie graficznej tak to przebiegało.
+Finally, it will proceed to the model training process, which will consist of 20 epochs.  
+Each epoch, assuming consistent hardware load, should take roughly the same amount of time.  
+So, if the first epoch takes 10 minutes, we can estimate: 10 minutes * 20 epochs = 200 minutes / 60 = 3 hours 20 minutes.  
+Additionally, if the dataset contains 12 minutes of material, the training time for one epoch will likely be about 12 minutes. At least in my case and with my GPU, this was how it proceeded.  
 ```
 INFO:Kamyk-12M:Train Epoch: 1 [0%]
 INFO:Kamyk-12M:[0, 0.0001]
@@ -219,37 +212,40 @@ INFO:Kamyk-12M:Training is done. The program is closed.
 INFO:Kamyk-12M:saving final ckpt:Success.
 ```
 
-# Interferencja
+# Inference
 <img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/interferencja.png" />
-Wyuczony model można wykorzystać w procesie inferencji. Inferencja to zjawisko fizyczne, które polega na nakładaniu się fal, prowadzące do powstania nowego wzorca falowego. Aby stworzyć cover z użyciem AI, potrzebna będzie wersja utworu zawierająca jedynie głos, na przykład acapella. Z listy rozwijanej wybieramy nasz model i podajemy ścieżkę do wokali.
 
-Naciśnięcie przycisku "Convert" uruchomi proces inferencji. Jeśli efekt inferencji nie jest satysfakcjonujący, można spróbować dostosować odpowiednie parametry. Mamy możliwość zmiany oktawy, na przykład obniżając ją do wartości -12, co może być pomocne, jeśli model był uczony na głosach o niskim tonie, a utwór wykonywany jest przez osobę o wysokim tonie głosu.
+The trained model can be used in the inference process. Inference is a physical phenomenon involving the superposition of waves, resulting in a new wave pattern. To create an AI cover, you will need a version of the track containing only vocals, for example, an acapella. From the dropdown list, select your model and provide the path to the vocal track.  
 
-Resampling jest używany w przypadku, gdy model był uczony na niewielkiej liczbie próbek i konieczne jest ich zwiększenie. Zaleca się unikanie manipulowania tą opcją, ponieważ może to prowadzić do wystąpienia artefaktów. Kolejna opcja pozwala na dokładniejsze odwzorowanie względem autora oryginału (wartość 0) lub bardziej dopasowane do głosu w modelu (wartość 1). Manipulowanie tym parametrem może pomóc w osiągnięciu lepszych rezultatów.
+Pressing the **"Convert"** button starts the inference process. If the inference result is not satisfactory, you can try adjusting the relevant parameters. You can change the **octave**, for example lowering it to -12, which can be helpful if the model was trained on low-pitched voices and the song is performed by someone with a high-pitched voice.  
 
-Pozostałe parametry dotyczą ciszy, wdechów słyszalnych podczas mowy oraz akcentu. Te parametry również powinny być dostosowane w zależności od oczekiwanego rezultatu.
+**Resampling** is used when the model was trained on a small number of samples and needs to increase them. It is recommended to avoid manipulating this option, as it may introduce artifacts. Another option allows for more accurate reproduction relative to the original artist (value 0) or more aligned with the model's voice (value 1). Adjusting this parameter can help achieve better results.  
 
-Otrzymany plik należy dokładnie przesłuchać. Jeśli rezultat jest satysfakcjonujący, można go pobrać i dalej przetwarzać audio.
+Other parameters relate to silence, audible breaths during speech, and accent. These should also be adjusted depending on the expected outcome.  
 
-# Podsumowanie
+The resulting file should be carefully listened to. If the result is satisfactory, it can be downloaded and further processed.  
 
-1. Zaczynamy od zebrania zestawu danych zawierających głos `aktora`, którego głos będziemy podkładać.
-2. Następnie przygotowujemy i oczyszczamy pliki audio, co obejmuje m.in. eliminację szumów i niepożądanych artefaktów.
-3. Wybieramy jeden z dostępnych algorytmów i przystępujemy do trenowania modelu, który generuje plik .pth zawierający wytrenowany model.
-4. Zdobywamy plik audio piosenkarza wykonującego dany utwór (acapella lub voice only).
-4b. Jeśli jest to konieczne, oczyszczamy również utwór acapella lub voice only, eliminując ewentualne zakłócenia.
-5. Przeprowadzamy proces interferencji między wytrenowanym modelem a utworem acapella.
-6. Wynikowy plik audio możemy dalej edytować, dodając muzykę lub dokonując innych modyfikacji w programie do obróbki audio.
+# Summary
+
+1. Start by collecting a dataset containing the voice of the `actor` whose voice will be overlaid.  
+2. Next, prepare and clean the audio files, including removing noise and unwanted artifacts.  
+3. Choose one of the available algorithms and proceed to train the model, which generates a `.pth` file containing the trained model.  
+4. Obtain an audio file of the singer performing the song (acapella or voice only).  
+4b. If necessary, clean the acapella or voice-only track as well, removing any unwanted noise.  
+5. Perform the inference process between the trained model and the acapella track.  
+6. The resulting audio file can be further edited, adding music or making other modifications in an audio editing program.  
+
 
 <img src="https://github.com/Gabrysiewicz/S8P_Retrieval_Based_Voice_Conversion/blob/main/summary.png" />
 
-Cały proces wymaga relatywnie: 
-- Niewielkiego zbioru danych startowych.
-- Czasochłonnego przygotowania danych, szczególnie oczyszczania i przygotowania plików audio.
-- Dużej mocy obliczeniowej lub długiego czasu obliczeń, w zależności od wybranego algorytmu i rozmiaru danych.
-- Cierpliwości i umiejętności do dobrania odpowiednich parametrów modelu i procesu interferencji.
+The entire process requires relatively:  
+- A small initial dataset.  
+- Time-consuming data preparation, especially cleaning and preparing audio files.  
+- Significant computing power or long computation times, depending on the chosen algorithm and dataset size.  
+- Patience and skill to select appropriate model and inference parameters.  
 
-Mając na uwadze obecne możliwości sprzętowe i ostateczny efekt, stworzenie Cover AI jest fascynującą możliwością, która może być łatwo rozwijana o dodatkowe funkcjonalności takie jak wykrywanie potencjalnych głosów nadających się do śpiewu, Real Time Translating z wykorzystanie własnego głosu, próby wykrywania deep-fake lub spoofingu. Projekt pozostawia możliwości warte rozważenia na poziomie pracy magisterskiej.
+Considering current hardware capabilities and the final result, creating an AI Cover is a fascinating opportunity, which can be easily extended with additional functionalities such as detecting potential voices suitable for singing, real-time translation using one’s own voice, attempts to detect deepfakes or spoofing. The project offers possibilities worth exploring at the level of a master’s thesis.  
+
 
 
 
